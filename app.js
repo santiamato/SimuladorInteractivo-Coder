@@ -14,6 +14,10 @@ class productos{
         this.precio = precio;
         this.stock = stock;
     }
+
+    calcularPrecio = (a, b) => {
+        return a * b
+    }
 }
 let pebete = new productos("Pebete", 100, 30);
 let medialuna = new productos("Medialuna", 80, 30);
@@ -29,10 +33,6 @@ console.log(listaProductos)
 cargarNafta = () => "Tu tanque esta cargado!";
 
 saludar = () => "Vuelva Pronto!";
-
-let calcularPrecio = (a, b) => {
-    return a * b
-}
 
 
 do{
@@ -75,7 +75,7 @@ do{
                         }else if (cantidadPebete <= 0){
                             alert("Ingrese una cantidad valida")
                         }else{
-                            alert(`Usted a comprado ${cantidadPebete} pebetes, y le salio en total $${calcularPrecio(cantidadPebete, pebete.precio)}`)
+                            alert(`Usted a comprado ${cantidadPebete} pebetes, y le salio en total $${pebete.calcularPrecio(cantidadPebete, pebete.precio)}`)
                             alert(saludar());
                         }
                         break;
@@ -87,7 +87,7 @@ do{
                         }else if (cantidadMedialuna <= 0){
                             alert("Ingrese una cantidad valida")
                         }else{
-                            alert(`Usted a comprado ${cantidadMedialuna} medialunas, y le salio en total $${calcularPrecio(cantidadMedialuna, medialuna.precio)}`)
+                            alert(`Usted a comprado ${cantidadMedialuna} medialunas, y le salio en total $${medialuna.calcularPrecio(cantidadMedialuna, medialuna.precio)}`)
                             alert(saludar());
                         }
                         break;
@@ -99,7 +99,7 @@ do{
                         }else if (cantidadSandwich <= 0){
                             alert("Ingrese una cantidad valida")
                         }else{
-                            alert(`Usted a comprado ${cantidadSandwich} sandwichs, y le salio en total $${calcularPrecio(cantidadSandwich, medialuna.precio)}`)
+                            alert(`Usted a comprado ${cantidadSandwich} sandwichs, y le salio en total $${sandwich.calcularPrecio(cantidadSandwich, medialuna.precio)}`)
                             alert(saludar());
                         }
                         break;
@@ -120,7 +120,7 @@ do{
                             }else if (cantidadCocaCola <= 0){
                                 alert("Ingrese una cantidad valida")
                             }else{
-                                alert(`Usted a comprado ${cantidadCocaCola} Coca Colas, y le salio en total $${calcularPrecio(cantidadCocaCola, cocaCola.precio)}`)
+                                alert(`Usted a comprado ${cantidadCocaCola} Coca Colas, y le salio en total $${cocaCola.calcularPrecio(cantidadCocaCola, cocaCola.precio)}`)
                                 alert(saludar());
                             }
                             break;
@@ -132,7 +132,7 @@ do{
                             }else if (cantidadAgua <= 0){
                                 alert("Ingrese una cantidad valida")
                             }else{
-                                alert(`Usted a comprado ${cantidadAgua} Aguas, y le salio en total $${calcularPrecio(cantidadAgua, agua.precio)}`)
+                                alert(`Usted a comprado ${cantidadAgua} Aguas, y le salio en total $${agua.calcularPrecio(cantidadAgua, agua.precio)}`)
                                 alert(saludar());
                             }
                             break;
