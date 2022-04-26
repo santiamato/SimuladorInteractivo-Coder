@@ -3,16 +3,6 @@ alert("Estacion de Servicio VSC");
 // VARIABLES
 let accion;
 let tipoNafta;
-let cantidadPebete;
-let cantidadMedialuna;
-let cantidadSandwich;
-let cantidadCocaCola;
-let cantidadAgua;
-let precioCocaCola = 200;
-let precioAgua = 100;
-let precioPebete = 100;
-let precioMedialuna = 80;
-let precioSandwich = 50;
 let litros;
 let tipoDeConsumible;
 let comida;
