@@ -18,6 +18,23 @@ let tipoDeConsumible;
 let comida;
 let bebida;
 
+class productos{
+    constructor(nombre, precio, stock){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+}
+let pebete = new productos("Pebete", 100, 30);
+let medialuna = new productos("Medialuna", 80, 30);
+let sandwich = new productos("Sandwich de Miga", 50, 30);
+let cocaCola = new productos("Coca Cola", 200, 15);
+let agua = new productos("Agua", 100, 20);
+
+const listaProductos = [pebete, medialuna, sandwich, cocaCola, agua]
+
+console.log(listaProductos)
+
 //FUNCIONES
 cargarNafta = () => "Tu tanque esta cargado!";
 
@@ -61,38 +78,38 @@ do{
                 let comida = parseInt(prompt("Tenemos: 1:Pebete, 2:Medialunas con jamon y queso, o 3:sandwich de miga"));
                 switch (comida) {
                     case 1:
-                        alert("Cada Pebete esta $100")
-                        let cantidadPebete = prompt("Cuantos Pebetes desea?")
-                        if (cantidadPebete > 30) {
-                            alert("No contamos con esta cantidad")
+                        alert(`Cada Pebete esta $${pebete.precio}`)
+                        let cantidadPebete = parseInt(prompt("Cuantos Pebetes desea?"));
+                        if (cantidadPebete > `${pebete.stock}`) {
+                            alert("No contamos con esta cantidad: Maximo 30")
                         }else if (cantidadPebete <= 0){
                             alert("Ingrese una cantidad valida")
                         }else{
-                            alert(`Usted a comprado ${cantidadPebete} pebetes, y le salio en total $${calcularPrecio(cantidadPebete, precioPebete)}`)
+                            alert(`Usted a comprado ${cantidadPebete} pebetes, y le salio en total $${calcularPrecio(cantidadPebete, pebete.precio)}`)
                             alert(saludar());
                         }
                         break;
                     case 2:
-                        alert("Cada Medialuna esta $80")
-                        let cantidadMedialuna = prompt("Cuantas medialunas desea?")
-                        if (cantidadMedialuna > 30) {
+                        alert(`Cada Medialuna esta $${medialuna.precio}`)
+                        let cantidadMedialuna = parseInt(prompt("Cuantas medialunas desea?"));
+                        if (cantidadMedialuna > `${medialuna.stock}`) {
                             alert("No contamos con esta cantidad: Maximo 30")
                         }else if (cantidadMedialuna <= 0){
                             alert("Ingrese una cantidad valida")
                         }else{
-                            alert(`Usted a comprado ${cantidadMedialuna} medialunas, y le salio en total $${calcularPrecio(cantidadMedialuna, precioMedialuna)}`)
+                            alert(`Usted a comprado ${cantidadMedialuna} medialunas, y le salio en total $${calcularPrecio(cantidadMedialuna, medialuna.precio)}`)
                             alert(saludar());
                         }
                         break;
                     case 3:
-                        alert("Cada sandwich de miga esta $50")
-                        let cantidadSandwich = prompt("Cuantos sandwich desea?")
-                        if (cantidadSandwich > 30) {
+                        alert(`Cada sandwich de miga esta $${sandwich.precio}`)
+                        let cantidadSandwich = parseInt(prompt("Cuantos sandwich desea?"));
+                        if (cantidadSandwich > `${sandwich.stock}`) {
                             alert("No contamos con esta cantidad")
                         }else if (cantidadSandwich <= 0){
                             alert("Ingrese una cantidad valida")
                         }else{
-                            alert(`Usted a comprado ${cantidadSandwich} sandwichs, y le salio en total $${calcularPrecio(cantidadSandwich, precioSandwich)}`)
+                            alert(`Usted a comprado ${cantidadSandwich} sandwichs, y le salio en total $${calcularPrecio(cantidadSandwich, medialuna.precio)}`)
                             alert(saludar());
                         }
                         break;
@@ -106,26 +123,26 @@ do{
                 let bebida = parseInt(prompt("Tenemos: 1:Coca Cola, 2:Agua"));
                     switch (bebida) {
                         case 1:
-                            alert("Cada coca cola esta $200")
-                            let cantidadCocaCola = prompt("Cuantas coca colas desea?")
-                            if (cantidadCocaCola > 15) {
+                            alert(`Cada coca cola esta $${cocaCola.precio}`)
+                            let cantidadCocaCola = parseInt(prompt("Cuantas coca colas desea?"));
+                            if (cantidadCocaCola > `${cocaCola.stock}`) {
                                 alert("No contamos con esta cantidad: Maximo 15")
                             }else if (cantidadCocaCola <= 0){
                                 alert("Ingrese una cantidad valida")
                             }else{
-                                alert(`Usted a comprado ${cantidadCocaCola} Coca Colas, y le salio en total $${calcularPrecio(cantidadCocaCola, precioCocaCola)}`)
+                                alert(`Usted a comprado ${cantidadCocaCola} Coca Colas, y le salio en total $${calcularPrecio(cantidadCocaCola, cocaCola.precio)}`)
                                 alert(saludar());
                             }
                             break;
                         case 2:
-                            alert("Cada botella de agua esta $100")
-                            let cantidadAgua = prompt("Cuantas aguas desea?")
-                            if (cantidadAgua > 20) {
+                            alert(`Cada botella de agua esta $${agua.precio}`)
+                            let cantidadAgua = parseInt(prompt("Cuantas aguas desea?"));
+                            if (cantidadAgua > `${agua.stock}`) {
                                 alert("No contamos con esta cantidad")
                             }else if (cantidadAgua <= 0){
                                 alert("Ingrese una cantidad valida")
                             }else{
-                                alert(`Usted a comprado ${cantidadAgua} Aguas, y le salio en total $${calcularPrecio(cantidadAgua, precioAgua)}`)
+                                alert(`Usted a comprado ${cantidadAgua} Aguas, y le salio en total $${calcularPrecio(cantidadAgua, agua.precio)}`)
                                 alert(saludar());
                             }
                             break;
