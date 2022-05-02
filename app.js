@@ -9,25 +9,30 @@ let comida;
 let bebida;
 
 class productos{
-    constructor(nombre, precio, stock){
+    constructor(nombre, precio, stock, tipo){
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
+        this.tipo = tipo;
     }
 
     calcularPrecio = (a, b) => {
         return a * b
     }
 }
-let pebete = new productos("Pebete", 100, 30);
-let medialuna = new productos("Medialuna", 80, 30);
-let sandwich = new productos("Sandwich de Miga", 50, 30);
-let cocaCola = new productos("Coca Cola", 200, 15);
-let agua = new productos("Agua", 100, 20);
 
-const listaProductos = [pebete, medialuna, sandwich, cocaCola, agua]
+let naftaSuper = new productos("Super", 180, 50, "NAFTA");
+let naftaDiesel = new productos("Diesel", 70, 50, "NAFTA");
+let naftaInfinia = new productos("Infinia", 250, 50, "NAFTA");
+let pebete = new productos("Pebete", 100, 30, "COMIDA");
+let medialuna = new productos("Medialuna", 80, 30, "COMIDA");
+let sandwich = new productos("Sandwich de Miga", 50, 30, "COMIDA");
+let cocaCola = new productos("Coca Cola", 200, 15, "BEBIDA");
+let agua = new productos("Agua", 100, 20, "BEBIDA");
 
-console.log(listaProductos)
+
+const listaProductos = [];
+listaProductos.push(naftaSuper, naftaDiesel, naftaInfinia, pebete, medialuna, sandwich, cocaCola, agua);  
 
 //FUNCIONES
 cargarNafta = () => "Tu tanque esta cargado!";
@@ -36,19 +41,22 @@ saludar = () => "Vuelva Pronto!";
 
 
 do{
+    let tipoNafta  = (listaProductos.filter((el) => el.tipo.includes("NAFTA")));
+    let nombresNaftas = tipoNafta.map((el) => el.nombre);
+
     accion = prompt("Que nesecita? (Nafta, Tienda, o Bathroom)").toUpperCase();
-    if (accion == "NAFTA") {
+    if (accion == listaProductos[1].tipo) {
         do{
             litros = parseInt(prompt("Cuantos litros?"));
-            if (litros >= 50) {
+            if (litros > listaProductos[1].stock) {
                 alert("El maximo de nafta recargable es 50 litros");
             }else if (litros <= 0){
                 alert("Cargue una cantidad valida");
             }
-        }while ((litros >= 50) || (litros <= 0));
+        }while ((litros > listaProductos[1].stock) || (litros <= 0));
 
         do{
-            tipoNafta = prompt("De cual? (Super, diesel o infinia)").toUpperCase();
+            tipoNafta = prompt(`De cual? ${nombresNaftas}`).toUpperCase();
             if (tipoNafta != "SUPER" && tipoNafta != "DIESEL" && tipoNafta != "INFINIA") {
                 alert("No contamos con ese combustible");
             }else{
@@ -57,18 +65,19 @@ do{
                 alert(saludar());
                 break;
             }
-        }while ((tipoNafta != "SUPER") || (tipoNafta != "DIESEL") || (tipoNafta != "INFINIA"));
+        }while (tipoNafta != nombresNaftas);
 
     }else if(accion == "TIENDA"){
         alert("Bienvenido a la tienda de VSC, tenemos todo lo que nesecita")
-        tipoDeConsumible = prompt("Que desea comprar? (Comida o Bebida)").toUpperCase();
-        if (tipoDeConsumible == "COMIDA") {
+        
+        tipoDeConsumible = prompt(`Que desea comprar? COMIDA O BEBIDA`).toUpperCase();
+        if (tipoDeConsumible == listaProductos[3].tipo) {
             
             do{
-                let comida = parseInt(prompt("Tenemos: 1:Pebete, 2:Medialunas con jamon y queso, o 3:sandwich de miga"));
+                let comida = parseInt(prompt(`Tenemos: 1: Pebete  2:Medialuna  3:Sandwich de Miga`));
                 switch (comida) {
                     case 1:
-                        alert(`Cada Pebete esta $${pebete.precio}`)
+                        alert(`Cada Pebete esta $${pebete.precio}`);
                         let cantidadPebete = parseInt(prompt("Cuantos Pebetes desea?"));
                         if (cantidadPebete > `${pebete.stock}`) {
                             alert("No contamos con esta cantidad: Maximo 30")
