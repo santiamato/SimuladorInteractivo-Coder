@@ -1,12 +1,7 @@
-
-let verNaftas = document.getElementById("verNaftas")
-verNaftas.onclick = () => mostrarProductos("NAFTAS");
-
-
 mostrarProductos = (mostrar) => {
+    let divProductos = document.getElementById("divProductos");
+    divProductos.innerHTML = "";
     listaProductos.filter((el) => el.tipo.includes(mostrar)).forEach((producto) => {
-        let contenedor = document.getElementById("contenedor");
-        contenedor.innerHTML = "";
         let divProducto = document.createElement("div");
             divProducto.innerHTML = 
             
@@ -26,8 +21,17 @@ mostrarProductos = (mostrar) => {
                     </div>
                 </div>
             </div>`
-            document.body.append(contenedor);
+            document.body.append(divProducto);
             
     });
         
 };
+
+let verNaftas = document.getElementById("verNaftas")
+verNaftas.addEventListener("click", mostrarProductos("NAFTA"));
+
+let verComidas = document.getElementById("verComidas")
+verComidas.addEventListener("click", mostrarProductos("COMIDA"));
+
+let verBebidas = document.getElementById("verBebidas")
+verBebidas.addEventListener("click", mostrarProductos("BEBIDA"));

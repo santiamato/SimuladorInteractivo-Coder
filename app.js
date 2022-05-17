@@ -1,13 +1,4 @@
 
-// VARIABLES
-let accion;
-let tipoNafta;
-let litros;
-let tipoDeConsumible;
-let comida;
-let bebida;
-
-
 class productos{
     constructor(nombre, precio, stock, tipo, imagen){
         this.nombre = nombre;
@@ -35,10 +26,6 @@ let agua = new productos("Agua", 100, 20, "BEBIDA", "img/descarga (1).jpg");
 const listaProductos = [];
 listaProductos.push(naftaSuper, naftaDiesel, naftaInfinia, pebete, medialuna, sandwich, cocaCola, agua);  
 
-//FUNCIONES
-cargarNafta = () => "Tu tanque esta cargado!";
-
-saludar = () => "Vuelva Pronto!";
 
 
 
