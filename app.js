@@ -37,7 +37,7 @@ function cargarProductosLS() {
 }
 
 for (const producto of listaProductos) {
-    guardarProductosLS(producto);
+    guardarProductosLS(listaProductos);
 }
 
 

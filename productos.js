@@ -1,25 +1,7 @@
-// let carrito = []
-
-
-// function agregarCarrito(id) {
-//     listaProductos.filter((el) => el.tipo.includes(id)).forEach((producto) => {
-//     carrito += producto
-
-//     document.body.append(carritoProductos);
-//     });
-// };
-// // //EVENTOS CARD
-// // let btnComprar = document.getElementById("btnComprar")
-// // document.addEventListener("DOMContentLoaded", function () {
-
-// //     // selecciona los elementos aquí
-  
-// //     btnComprar.onclick = agregarCarrito();
-  
-// //   });
 
 
 mostrarProductos = (mostrar) => {
+    cargarProductosLS(productos);
     let divProductos = document.getElementById("divProductos");
     divProductos.innerHTML = "";
     listaProductos.filter((el) => el.tipo.includes(mostrar)).forEach((producto) => {
