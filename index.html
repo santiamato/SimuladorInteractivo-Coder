@@ -24,17 +24,24 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
               <ul class="dropdown-menu" aria-labelledby="dropdown10">
-                <li><a id="verNaftas" class="dropdown-item" href="/productos.html">Naftas</a></li>
-                <li><a id="verComidas" class="dropdown-item" href="/productos.html">Comidas</a></li>
-                <li><a id="verBebidas" class="dropdown-item" href="/productos.html">Bebidas</a></li>
+                <li><a id="verNaftas" type="button" class="dropdown-item" href="productos.html">Naftas</a></li>
+                <li><a id="verComidas" type="button" class="dropdown-item" href="productos.html">Comidas</a></li>
+                <li><a id="verBebidas" type="button" class="dropdown-item" href="productos.html">Bebidas</a></li>
               </ul>
             </li>
+            <li id="carrito" class="nav-item mt-1">
+              <a href="/productos.html"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-basket2" viewBox="0 0 16 16">
+                <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
+              </svg></a>
+          </li>
           </ul>
         </header>
       </div>
     </header>
     <main>
-        <div class="container col-xxl-8 px-4 py-5">
+
+        <div id="divProductos" class="container col-xxl-8 px-4 py-5">
           <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
               <img src="/img/visual-studio-code-1.svg" class="d-block mx-lg-auto img-fluid" alt="logo.png" width="700" height="500" loading="lazy">
@@ -57,7 +64,8 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    
+
     <script src="app.js"></script>
+    <script src="productos.js"></script>
 </body>
 </html>
