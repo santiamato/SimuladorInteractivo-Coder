@@ -22,3 +22,4 @@ function verProducto(id) {
     localStorage.setItem("ver_producto", id);
     document.location = "ver-producto.html";
 }
+
