@@ -25,8 +25,8 @@ function validarFormulario() {
         resultado_form.innerHTML = "";
     }
 
-    if ((telefono.length != 14)) {
-        resultado_form.innerHTML = "<div class='p-3 mb-2 bg-danger text-white'>Ingrese correctamenteun valor para el campo Telefono! Debe tener 13 caracteres.</div>";
+    if ((telefono.length != 10)) {
+        resultado_form.innerHTML = "<div class='p-3 mb-2 bg-danger text-white'>Ingrese correctamenteun valor para el campo Telefono! Debe tener 10 caracteres.</div>";
         return false;
     } else {
         resultado_form.innerHTML = "";

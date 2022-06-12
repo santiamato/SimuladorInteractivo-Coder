@@ -30,14 +30,14 @@ contenido += `<div class='col-md-6 bg-light p-3'>
 </ul>
 </div>
 <div class='col-md-12 text-center p-5'>
-<button id="btnComprar" class='btn btn-warning'>Finalizar Compra</button>
+<button id="btnComprar" class='btn btn-primary'>Finalizar Compra</button>
 </div>`;
 resumen_compra.innerHTML = contenido;
 
 function mostrarAlerta (){
     Swal.fire(
         'Compra Finalizada',
-        'Su pedido le llegara en unos dias.',
+        'Se acredito el Pago, Buen viaje.',
         'success'
       )
       

@@ -12,8 +12,6 @@ function cargarProductos() {
             <a href="#" onclick="verProducto(${producto.id});"><img src="images/${producto.imagen}" class="card-img-top" alt="${producto.nombre}"></a>
             <div class="card-body">
             <h5 class="card-title">${producto.nombre}</h5>
-            <p class="lead">${producto.calorias} kcal</p>
-            <p class="card-text">${producto.descripcion}</p>
             <p class="card-text">$${producto.precio}</p>
             <a href="#" class="btn btn-primary" onclick="agregarAlCarrito(${producto.id});">Agregar (+)</a>
             </div>

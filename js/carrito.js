@@ -34,10 +34,18 @@ function eliminarCarrito() {
     actualizarBotonCarrito();
     cargarProductosSeleccionados();
 }
-
+function cantidadProductos(){
+    let productos_carrito = cargarProductosCarrito();
+    let total_productos = 0;
+    for (const producto of productos_carrito) {
+        total_productos += producto.cantidad;
+    }
+    return total_productos
+}
 function actualizarBotonCarrito() {
     let productos_carrito = cargarProductosCarrito();
-    let contenido = `<button type="button" class="btn btn-primary me-2 position-relative"><img src="images/basket.svg" alt="Carrito" width="32"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">${productos_carrito.length}</span></button>`;
+    let total_productos = cantidadProductos();
+    let contenido = `<button type="button" class="btn btn-primary me-2 position-relative"><img src="images/basket.svg" alt="Carrito" width="32"><span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">${total_productos}</span></button>`;
     document.getElementById("boton_carrito").innerHTML = contenido;
 }
 
@@ -100,12 +108,12 @@ function cargarProductosSeleccionados() {
         } else {
             let total_pagar = 0;
             let total_calorias = 0;
+            let total_productos = cantidadProductos();
             contenido = `<table class="table table-hover">
             <tr>
             <th>&nbsp;</th>
             <th class='text-start'>Nombre</th>
             <th class='text-center'>Cantidad</th>
-            <th class='text-center'>Calorías</th>
             <th class='text-center'>Precio</th>
             <th>&nbsp;</th>
             </tr>`;
@@ -115,18 +123,17 @@ function cargarProductosSeleccionados() {
                 <td><img src='images/${producto.imagen}' width='48' alt='${producto.nombre}' title='${producto.nombre}'></td>
                 <td class='text-start'>${producto.cantidad} x ${producto.nombre}</td>
                 <td class='text-center'><button class='btn btn-primary' onclick='eliminarProducto(${producto.id});' title='Eliminar Producto'>-</button> <b>${producto.cantidad}</b> <button class='btn btn-primary' onclick='agregarProducto(${producto.id});' title='Agregar Producto'>+</button></td>
-                <td class='text-center'>${producto.calorias * producto.cantidad} kcal</td>
                 <td class='text-center'><b>$${producto.precio * producto.cantidad}</b></td>
                 <td class='text-end'><button class='btn btn-danger' onclick='eliminarProducto(${producto.id});'><img src='images/trash3.svg' alt='Eliminar' width='24'></button></td>
                 </tr>`;
-                total_calorias += producto.calorias * producto.cantidad;
                 total_pagar += producto.precio * producto.cantidad;
+                
             }
 
             contenido += `<tr class="bg-light">
             <td>&nbsp;</td>
-            <td colspan='2'>Total</td>
-            <td class='text-center'>${total_calorias} kcal</td>
+            <td colspan='1'>Total</td>
+            <td class='2 text-center'><b>${total_productos}</b></td>
             <td class='text-center'><b>$${total_pagar}</b></td>
             <td>&nbsp;</td>
             </tr>

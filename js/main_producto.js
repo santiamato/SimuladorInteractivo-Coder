@@ -21,24 +21,17 @@ function renderProducto() {
     columna2.className = "col-md-4";
     let encabezado = document.createElement("h3");
     encabezado.innerText = producto.nombre;
-    let calorias = document.createElement("p");
-    calorias.innerHTML = `<b>${producto.calorias} kcal</b>`;
-    let descripcion = document.createElement("p");
-    descripcion.className = "lead";
-    descripcion.innerText = producto.descripcion;
     let precio = document.createElement("p");
     precio.innerHTML = `<b>$${producto.precio}</b>`;
     let boton = document.createElement("button");
     boton.onclick = () => {
         agregarAlCarrito(producto.id);
     }
-    boton.className = "btn btn-warning";
+    boton.className = "btn btn-primary";
     boton.innerHTML = "Agregar (+)";
     // Agrego la imagen al div
     columna2.appendChild(encabezado);
     // Agrego las calorias al div
-    columna2.appendChild(calorias);
-    columna2.appendChild(descripcion);
     columna2.appendChild(precio);
     columna2.appendChild(boton);
     // Agrego la columna al padre contenido_producto
